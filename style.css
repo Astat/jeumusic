@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    font-family: 'Arial Rounded MT Bold', 'Helvetica Rounded', Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    max-width: 800px;
+}
+
+h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.sound-button {
+    aspect-ratio: 1;
+    border: none;
+    border-radius: 30px;
+    font-size: 4rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    min-height: 120px;
+}
+
+.sound-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.sound-button.playing {
+    animation: pulse 1s infinite;
+}
+
+/* Fun colors for each button */
+.sound-button[data-id="1"] { background: linear-gradient(145deg, #FF6B6B, #ee5a5a); }
+.sound-button[data-id="2"] { background: linear-gradient(145deg, #4ECDC4, #3dbdb5); }
+.sound-button[data-id="3"] { background: linear-gradient(145deg, #FFE66D, #f0d85e); }
+.sound-button[data-id="4"] { background: linear-gradient(145deg, #95E1D3, #84d0c2); }
+.sound-button[data-id="5"] { background: linear-gradient(145deg, #F38181, #e27070); }
+.sound-button[data-id="6"] { background: linear-gradient(145deg, #AA96DA, #9985c9); }
+.sound-button[data-id="7"] { background: linear-gradient(145deg, #FCBAD3, #eba9c2); }
+.sound-button[data-id="8"] { background: linear-gradient(145deg, #A8D8EA, #97c7d9); }
+.sound-button[data-id="9"] { background: linear-gradient(145deg, #FF9F68, #ee8e57); }
+
+/* Stop icon styling */
+.stop-icon {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 8px;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* iPad optimization */
+@media (min-width: 768px) {
+    .button-grid {
+        gap: 30px;
+        padding: 30px;
+    }
+    
+    .sound-button {
+        font-size: 5rem;
+        border-radius: 40px;
+        min-height: 150px;
+    }
+    
+    .stop-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+/* Landscape mode for iPad */
+@media (orientation: landscape) and (min-width: 768px) {
+    .button-grid {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    
+    .sound-button {
+        min-height: 130px;
+    }
+}
