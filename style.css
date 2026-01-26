@@ -19,16 +19,102 @@ body {
 }
 
 .container {
-    text-align: center;
     width: 100%;
     max-width: 800px;
 }
 
-h1 {
+/* ============================================
+   INDEX PAGE - Exercise Selection
+   ============================================ */
+
+.main-title {
     color: white;
     font-size: 3rem;
     margin-bottom: 30px;
+    text-align: center;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.exercise-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.exercise-button {
+    border: none;
+    border-radius: 30px;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    padding: 40px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.exercise-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Exercise button colors */
+.exercise-button:nth-child(6n+1) { background: linear-gradient(145deg, #FF6B6B, #ee5a5a); }
+.exercise-button:nth-child(6n+2) { background: linear-gradient(145deg, #4ECDC4, #3dbdb5); }
+.exercise-button:nth-child(6n+3) { background: linear-gradient(145deg, #FFE66D, #f0d85e); }
+.exercise-button:nth-child(6n+4) { background: linear-gradient(145deg, #95E1D3, #84d0c2); }
+.exercise-button:nth-child(6n+5) { background: linear-gradient(145deg, #AA96DA, #9985c9); }
+.exercise-button:nth-child(6n+6) { background: linear-gradient(145deg, #F38181, #e27070); }
+
+/* ============================================
+   PLAYER PAGE - Sound Buttons
+   ============================================ */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    position: relative;
+    padding: 0 20px;
+}
+
+.back-button {
+    position: absolute;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.25);
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease, background 0.2s ease;
+}
+
+.back-button:active {
+    transform: scale(0.9);
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.back-arrow {
+    line-height: 1;
+}
+
+.exercise-title {
+    color: white;
+    font-size: 2.5rem;
+    text-align: center;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    flex-grow: 1;
 }
 
 .button-grid {
@@ -63,7 +149,7 @@ h1 {
     animation: pulse 1s infinite;
 }
 
-/* Fun colors for each button */
+/* Sound button colors */
 .sound-button[data-id="1"] { background: linear-gradient(145deg, #FF6B6B, #ee5a5a); }
 .sound-button[data-id="2"] { background: linear-gradient(145deg, #4ECDC4, #3dbdb5); }
 .sound-button[data-id="3"] { background: linear-gradient(145deg, #FFE66D, #f0d85e); }
@@ -73,6 +159,9 @@ h1 {
 .sound-button[data-id="7"] { background: linear-gradient(145deg, #FCBAD3, #eba9c2); }
 .sound-button[data-id="8"] { background: linear-gradient(145deg, #A8D8EA, #97c7d9); }
 .sound-button[data-id="9"] { background: linear-gradient(145deg, #FF9F68, #ee8e57); }
+.sound-button[data-id="10"] { background: linear-gradient(145deg, #88D8B0, #77c79f); }
+.sound-button[data-id="11"] { background: linear-gradient(145deg, #C9B1FF, #b8a0ee); }
+.sound-button[data-id="12"] { background: linear-gradient(145deg, #FFB7B2, #eea6a1); }
 
 /* Stop icon styling */
 .stop-icon {
@@ -88,8 +177,41 @@ h1 {
     100% { transform: scale(1); }
 }
 
-/* iPad optimization */
+/* ============================================
+   RESPONSIVE - iPad optimization
+   ============================================ */
+
 @media (min-width: 768px) {
+    .main-title {
+        font-size: 4rem;
+        margin-bottom: 40px;
+    }
+    
+    .exercise-grid {
+        gap: 30px;
+        padding: 30px;
+    }
+    
+    .exercise-button {
+        font-size: 2.5rem;
+        padding: 50px 30px;
+        border-radius: 40px;
+    }
+    
+    .header {
+        margin-bottom: 30px;
+    }
+    
+    .back-button {
+        width: 70px;
+        height: 70px;
+        font-size: 2.5rem;
+    }
+    
+    .exercise-title {
+        font-size: 3rem;
+    }
+    
     .button-grid {
         gap: 30px;
         padding: 30px;
@@ -105,14 +227,16 @@ h1 {
         width: 70px;
         height: 70px;
     }
-    
-    h1 {
-        font-size: 4rem;
-    }
 }
 
 /* Landscape mode for iPad */
 @media (orientation: landscape) and (min-width: 768px) {
+    .exercise-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    
     .button-grid {
         max-width: 700px;
         margin: 0 auto;
@@ -120,5 +244,37 @@ h1 {
     
     .sound-button {
         min-height: 130px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+    .main-title {
+        font-size: 2rem;
+    }
+    
+    .exercise-button {
+        font-size: 1.5rem;
+        padding: 30px 15px;
+    }
+    
+    .exercise-title {
+        font-size: 1.8rem;
+    }
+    
+    .back-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .sound-button {
+        font-size: 3rem;
+        min-height: 90px;
+    }
+    
+    .stop-icon {
+        width: 40px;
+        height: 40px;
     }
 }
