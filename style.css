@@ -1,164 +1,164 @@
 /* ============================================
-   BASE STYLES
-   ============================================ */
+BASE STYLES
+============================================ */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    user-select: none;
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ -webkit-tap-highlight-color: transparent;
+ -webkit-touch-callout: none;
+ -webkit-user-select: none;
+ user-select: none;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    padding: 20px;
+ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+ min-height: 100vh;
+ background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+ padding: 20px;
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
+ max-width: 600px;
+ margin: 0 auto;
 }
 
 .page {
-    display: block;
+ display: block;
 }
 
 .page.hidden {
-    display: none;
+ display: none;
 }
 
 /* ============================================
-   INDEX PAGE - Exercise List
-   ============================================ */
+INDEX PAGE - Exercise List
+============================================ */
 
 .exercise-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px 0;
+ display: flex;
+ flex-direction: column;
+ gap: 15px;
+ padding: 20px 0;
 }
 
 .exercise-button {
-    width: 100%;
-    padding: 25px 30px;
-    border: none;
-    border-radius: 15px;
-    background: linear-gradient(145deg, #ff6b6b, #ee5a5a);
-    color: white;
-    font-size: 1.4rem;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-    text-align: left;
+ width: 100%;
+ padding: 25px 30px;
+ border: none;
+ border-radius: 15px;
+ background: linear-gradient(145deg, #ff6b6b, #ee5a5a);
+ color: white;
+ font-size: 1.4rem;
+ font-weight: 600;
+ cursor: pointer;
+ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+ transition: transform 0.1s ease, box-shadow 0.1s ease;
+ text-align: left;
 }
 
 .exercise-button:nth-child(3n+1) {
-    background: linear-gradient(145deg, #ff6b6b, #ee5a5a);
+ background: linear-gradient(145deg, #ff6b6b, #ee5a5a);
 }
 
 .exercise-button:nth-child(3n+2) {
-    background: linear-gradient(145deg, #4ecdc4, #44a08d);
+ background: linear-gradient(145deg, #4ecdc4, #44a08d);
 }
 
 .exercise-button:nth-child(3n) {
-    background: linear-gradient(145deg, #45b7d1, #2980b9);
+ background: linear-gradient(145deg, #45b7d1, #2980b9);
 }
 
 .exercise-button:active {
-    transform: scale(0.98);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+ transform: scale(0.98);
+ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 /* ============================================
-   PLAYER PAGE - Sound Buttons
-   ============================================ */
+PLAYER PAGE - Sound Buttons
+============================================ */
 
 .header {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    padding: 0 10px;
-    gap: 15px;
+ display: flex;
+ align-items: center;
+ margin-bottom: 20px;
+ padding: 0 10px;
+ gap: 15px;
 }
 
 .back-button {
-    flex-shrink: 0;
-    width: 50px;
-    height: 50px;
-    border: none;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    transition: transform 0.1s ease, background 0.2s ease;
+ flex-shrink: 0;
+ width: 50px;
+ height: 50px;
+ border: none;
+ border-radius: 50%;
+ background: rgba(255, 255, 255, 0.25);
+ color: white;
+ font-size: 1.5rem;
+ cursor: pointer;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+ transition: transform 0.1s ease, background 0.2s ease;
 }
 
 .back-button:active {
-    transform: scale(0.9);
-    background: rgba(255, 255, 255, 0.35);
+ transform: scale(0.9);
+ background: rgba(255, 255, 255, 0.35);
 }
 
 .back-arrow {
-    line-height: 1;
+ line-height: 1;
 }
 
 .exercise-title {
-    color: white;
-    font-size: 1.8rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    flex: 1;
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+ color: white;
+ font-size: 1.8rem;
+ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+ flex: 1;
+ min-width: 0;
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
 }
 
 .button-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 10px;
+ display: grid;
+ grid-template-columns: repeat(3, 1fr);
+ gap: 15px;
+ padding: 10px;
 }
 
 .sound-button {
-    aspect-ratio: 1;
-    border: none;
-    border-radius: 20px;
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: white;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.1s ease, box-shadow 0.1s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+ aspect-ratio: 1;
+ border: none;
+ border-radius: 20px;
+ font-size: 2.5rem;
+ font-weight: bold;
+ color: white;
+ cursor: pointer;
+ box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+ transition: transform 0.1s ease, box-shadow 0.1s ease;
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
 .sound-button:active {
-    transform: scale(0.95);
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+ transform: scale(0.95);
+ box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .sound-button.playing {
-    animation: pulse 0.3s ease-out;
+ animation: pulse 0.3s ease-out;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+ 0% { transform: scale(1); }
+ 50% { transform: scale(1.05); }
+ 100% { transform: scale(1); }
 }
 
 /* Button colors */
@@ -173,22 +173,22 @@ body {
 .sound-button:nth-child(9) { background: linear-gradient(145deg, #ffa502, #ff7f50); }
 
 /* ============================================
-   RESPONSIVE
-   ============================================ */
+RESPONSIVE
+============================================ */
 
 @media (max-width: 400px) {
-    .exercise-title {
-        font-size: 1.4rem;
-    }
-    
-    .back-button {
-        width: 45px;
-        height: 45px;
-        font-size: 1.3rem;
-    }
-    
-    .exercise-button {
-        padding: 20px 25px;
-        font-size: 1.2rem;
-    }
+ .exercise-title {
+     font-size: 1.4rem;
+ }
+ 
+ .back-button {
+     width: 45px;
+     height: 45px;
+     font-size: 1.3rem;
+ }
+ 
+ .exercise-button {
+     padding: 20px 25px;
+     font-size: 1.2rem;
+ }
 }
