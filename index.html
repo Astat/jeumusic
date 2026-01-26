@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Buttons</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #f0f8ff;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            touch-action: manipulation;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 800px;
+        }
+
+        .music-button {
+            width: 120px;
+            height: 120px;
+            border-radius: 25px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.1s, background-color 0.2s;
+        }
+
+        .music-button:active {
+            transform: scale(0.95);
+        }
+
+        .music-button.playing {
+            background-color: #f44336;
+        }
+
+        @media (max-width: 600px) {
+            .music-button {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="button-container" id="buttonContainer"></div>
+
+    <script>
+        // Map of button numbers to audio file paths (modify this to add/remove sounds)
+        const soundMap = {
+            1: 'sounds/1.mp3',
+            2: 'sounds/2.mp3',
+            3: 'sounds/3.mp3',
+            4: 'sounds/4.mp3',
+            5: 'sounds/5.mp3',
+            6: 'sounds/6.mp3',
+            7: 'sounds/7.mp3',
+            8: 'sounds/8.mp3',
+            9: 'sounds/9.mp3'
+        };
+
+        // Store currently playing audio
+        let currentAudio = null;
+
+        // Create buttons dynamically
+        const buttonContainer = document.getElementById('buttonContainer');
+
+        for (const [number, file] of Object.entries(soundMap)) {
+            const button = document.createElement('button');
+            button.className = 'music-button';
+            button.textContent = number;
+            button.dataset.number = number;
+            button.dataset.file = file;
+
+            button.addEventListener('click', () => {
+                togglePlay(button);
+            });
+
+            buttonContainer.appendChild(button);
+        }
+
+        // Play/pause toggle function
+        function togglePlay(button) {
+            const file = button.dataset.file;
+            const number = button.dataset.number;
+
+            // Stop current audio if playing
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+                const currentButton = document.querySelector(`.music-button[data-number="${currentAudio.dataset.number}"]`);
+                if (currentButton) {
+                    currentButton.textContent = currentAudio.dataset.number;
+                    currentButton.classList.remove('playing');
+                }
+            }
+
+            // If clicking the same button, stop
+            if (button.classList.contains('playing')) {
+                button.textContent = number;
+                button.classList.remove('playing');
+                currentAudio = null;
+                return;
+            }
+
+            // Play new audio
+            const audio = new Audio(file);
+            audio.dataset.number = number;
+            audio.play();
+
+            button.textContent = '■'; // Stop symbol
+            button.classList.add('playing');
+            currentAudio = audio;
+
+            // Reset button when audio ends
+            audio.addEventListener('ended', () => {
+                button.textContent = number;
+                button.classList.remove('playing');
+                currentAudio = null;
+            });
+        }
+    </script>
+</body>
+</html>
