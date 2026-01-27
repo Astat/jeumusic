@@ -51,7 +51,7 @@ const EXERCISES = [
         exerciseName: "Vents - Exercice 1",
         sounds: {
             1: 'sounds/Vents/Exercice 1/1.m4a',
-            2: 'sounds/Vents/Exercice 1/2.m4a',
+            2: 'sounds/Vents/Exercice 1/2.mp3',
             3: 'sounds/Vents/Exercice 1/3.m4a',
             4: 'sounds/Vents/Exercice 1/4.m4a'
         }
@@ -59,7 +59,7 @@ const EXERCISES = [
     {
         exerciseName: "Vents - Exercice 2",
         sounds: {
-            1: 'sounds/Vents/Exercice 2/1.m4a',
+            1: 'sounds/Vents/Exercice 2/1.mp3',
             2: 'sounds/Vents/Exercice 2/2.m4a',
             3: 'sounds/Vents/Exercice 2/3.m4a',
             4: 'sounds/Vents/Exercice 2/4.m4a'
