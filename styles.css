@@ -76,6 +76,26 @@ INDEX PAGE - Exercise List
 }
 
 /* ============================================
+   CORRIGES LINK
+   ============================================ */
+
+.corriges-link {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    padding: 10px;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.corriges-link:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ============================================
 PLAYER PAGE - Sound Buttons
 ============================================ */
 
